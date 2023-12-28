@@ -11,9 +11,9 @@ type FormProps = {
     phone: string;
   };
   setPersonalInfo: Dispatch<SetStateAction<{ name: string; email: string; phone: string }>>;
-  chosenPlanId: number | null;
+  chosenPlanId: number;
   addOns: number[] | null;
-  setChosenPlanId: Dispatch<SetStateAction<number | null>>;
+  setChosenPlanId: Dispatch<SetStateAction<number>>;
   setAddOns: Dispatch<SetStateAction<number[] | null>>;
   increceStep: () => void;
   decreceStep: () => void;
@@ -50,7 +50,7 @@ export const FormContextProvider = ({ children }: { children: ReactNode }) => {
     email: '',
     phone: '',
   });
-  const [chosenPlanId, setChosenPlanId] = useState<number | null>(1);
+  const [chosenPlanId, setChosenPlanId] = useState(1);
   const [chosenPlanMethodID, setchosenPlanMethod] = useState(1);
 
   function switchMethodPlane() {

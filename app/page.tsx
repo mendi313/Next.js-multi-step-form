@@ -15,8 +15,8 @@ export default function Home() {
           <Steps />
         </div>
         <div className="w-3/5 h-full">
-          <h1 className="mt-9 font-bold text-xl text-black">{STEPS[correntStep].subtitle}</h1>
-          <p className="text-sm text-gray-500">{STEPS[correntStep].description}</p>
+          <h1 className="mt-9 font-bold text-xl text-black">{STEPS[correntStep]?.subtitle}</h1>
+          <p className="text-sm text-gray-500">{STEPS[correntStep]?.description}</p>
           <Form />
         </div>
         <div className=" w-2/5 absolute inset-0 z-0 p-4">

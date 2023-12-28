@@ -1,6 +1,6 @@
 import { useFormContext } from '../Context/stroe';
 
-export default function Navigation({ goBack = true, goNext = true }: { goNext?: boolean; goBack?: boolean }) {
+export default function Navigation({ goBack = true, goNext = true, confrim = false }: { confrim?: boolean; goNext?: boolean; goBack?: boolean }) {
   const { decreceStep } = useFormContext();
   return (
     <div className="w-2/3 mt-5 flex justify-between">
@@ -13,7 +13,7 @@ export default function Navigation({ goBack = true, goNext = true }: { goNext?: 
       )}
       {goNext && (
         <button className="bg-blue-900 p-2 rounded-lg text-white" type="submit">
-          Next Step
+          {confrim ? 'Confrim' : 'Next Step'}
         </button>
       )}
     </div>
