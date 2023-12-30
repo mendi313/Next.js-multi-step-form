@@ -3,8 +3,8 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from 'react';
 
 type FormProps = {
-  correntStep: number;
-  setCorrentStep: Dispatch<SetStateAction<number>>;
+  currentStep: number;
+  setCurrentStep: Dispatch<SetStateAction<number>>;
   personalInfo: {
     name: string;
     email: string;
@@ -23,9 +23,9 @@ type FormProps = {
 };
 
 const FormContext = createContext<FormProps>({
-  correntStep: 0,
+  currentStep: 0,
   addOns: null,
-  setCorrentStep: (): void => {},
+  setCurrentStep: (): void => {},
   personalInfo: {
     name: '',
     email: '',
@@ -44,7 +44,7 @@ const FormContext = createContext<FormProps>({
 
 export const FormContextProvider = ({ children }: { children: ReactNode }) => {
   const [addOns, setAddOns] = useState<number[] | null>(null);
-  const [correntStep, setCorrentStep] = useState(0);
+  const [currentStep, setCorrentStep] = useState(0);
   const [personalInfo, setPersonalInfo] = useState({
     name: '',
     email: '',
@@ -70,8 +70,8 @@ export const FormContextProvider = ({ children }: { children: ReactNode }) => {
         decreceStep,
         switchMethodPlane,
         increceStep,
-        correntStep,
-        setCorrentStep,
+        currentStep,
+        setCurrentStep: setCorrentStep,
         personalInfo,
         setPersonalInfo,
         chosenPlanId,

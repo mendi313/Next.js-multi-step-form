@@ -6,7 +6,7 @@ import { useFormContext } from '../Context/stroe';
 import ThanksPage from './ThanksPage';
 
 export default function Form() {
-  const { correntStep } = useFormContext();
+  const { currentStep: correntStep } = useFormContext();
   let componentToRender = null;
 
   switch (correntStep) {

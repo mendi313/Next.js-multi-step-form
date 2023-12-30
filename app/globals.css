@@ -3,9 +3,21 @@
 @tailwind utilities;
 
 :root {
-  @apply bg-slate-300;
-  padding: 30px;
+  @apply bg-slate-300; /* Assuming @apply is used with a preprocessor like SCSS */
 }
+
+/* Default padding for all screen sizes */
+:root {
+  padding: 0; /* Reset padding for all sizes */
+}
+
+/* Apply padding only for screens with a minimum width of 768px (adjust as needed for desktop) */
+@media screen and (min-width: 768px) {
+  :root {
+    padding: 30px; /* Apply padding on desktop */
+  }
+}
+
 
 .input-box {
   @apply flex flex-col gap-1 mt-2 w-full;

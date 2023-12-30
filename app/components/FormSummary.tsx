@@ -5,7 +5,7 @@ import METHODS from '@/assets/planMethod';
 import ADD_ONS from '@/assets/add-ons';
 
 export default function FormSummary() {
-  const { increceStep, chosenPlanMethodID, chosenPlanId, setCorrentStep, addOns } = useFormContext();
+  const { increceStep, chosenPlanMethodID, chosenPlanId, setCurrentStep: setCorrentStep, addOns } = useFormContext();
   const plan = PLANES.find((plan) => plan.id === chosenPlanId);
   const method = METHODS.find((method) => method.id === chosenPlanMethodID);
   const chosenAddOns = ADD_ONS.filter((addOn) => addOns?.includes(addOn.id));
@@ -61,7 +61,9 @@ export default function FormSummary() {
           {payForMonth ? 'per month' : 'per year'}
           {')'}
         </div>
-        <div className='text-blue-800 text-lg font-semibold'>+${total}/{method?.shortName}</div>
+        <div className="text-blue-800 text-lg font-semibold">
+          +${total}/{method?.shortName}
+        </div>
       </div>
       <Navigation confrim={true} />
     </form>
