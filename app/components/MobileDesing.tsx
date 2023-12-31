@@ -16,7 +16,7 @@ export default function MobileDesing() {
         <div className="mt-10">
           <Steps />
         </div>
-        <div className="p-3  w-4/5 rounded-lg bg-white ">
+        <div className="p-3 w-4/5 rounded-lg bg-white ">
           <h1 className="mt-9 font-bold text-xl text-black">{STEPS[currentStep]?.subtitle}</h1>
           <p className="text-sm text-gray-500">{STEPS[currentStep]?.description}</p>
           <Form />
