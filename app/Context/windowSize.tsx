@@ -18,7 +18,7 @@ export const WindowContextProvider = ({ children }: { children: ReactNode }) => 
   const checkWindowSize = () => {
     let windowWidth;
     if (typeof window !== 'undefined') windowWidth = window.innerWidth;
-    if (windowWidth !== undefined && windowWidth >= 400) {
+    if (windowWidth !== undefined && windowWidth >= 520) {
       setIsDesktop(true);
     } else {
       setIsDesktop(false);
