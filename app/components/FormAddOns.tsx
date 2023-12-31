@@ -2,9 +2,11 @@ import ADD_ONS from '@/assets/add-ons';
 import { useFormContext } from '../Context/stroe';
 import Navigation from './Navigation';
 import METHODS from '@/assets/planMethod';
+import { useWindowContext } from '../Context/windowSize';
 
 export default function FormAddOns() {
   const { increceStep, setAddOns, chosenPlanMethodID, addOns } = useFormContext();
+  const { isDesktop } = useWindowContext();
   const method = METHODS.find((method) => method.id === chosenPlanMethodID)?.shortName;
   function addOrRemoveAddOns(id: number) {
     setAddOns((prevAddOns) => {
@@ -23,7 +25,7 @@ export default function FormAddOns() {
 
   return (
     <form onSubmit={increceStep} className="w-full flex flex-col items-start justify-center">
-      <div className="w-2/3 my-5 flex flex-col justify-start gap-4">
+      <div className={`${isDesktop && 'w-2/3'}  my-5 flex flex-col justify-start gap-4`}>
         {ADD_ONS.map((add_ons) => (
           <div
             className={`border flex items-center justify-between cursor-pointer hover:border-black p-6 rounded-md ${
@@ -40,7 +42,7 @@ export default function FormAddOns() {
               </div>
               {/* <div className="text-xs text-gray-600">${chosenPlanMethodID === 2 ? plane.priceForYear + '' + '/' + price: plane.priceForMonth + '' + '/' + price}</div> */}
             </div>
-            <div className='text-[0.7rem] text-gray-500'>
+            <div className="text-[0.7rem] text-gray-500">
               +${chosenPlanMethodID === 1 ? add_ons.pricePerMonth : add_ons.pricePerYear}/{method}
             </div>
           </div>

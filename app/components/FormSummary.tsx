@@ -3,9 +3,11 @@ import { useFormContext } from '../Context/stroe';
 import Navigation from './Navigation';
 import METHODS from '@/assets/planMethod';
 import ADD_ONS from '@/assets/add-ons';
+import { useWindowContext } from '../Context/windowSize';
 
 export default function FormSummary() {
   const { increceStep, chosenPlanMethodID, chosenPlanId, setCurrentStep: setCorrentStep, addOns } = useFormContext();
+  const { isDesktop } = useWindowContext();
   const plan = PLANES.find((plan) => plan.id === chosenPlanId);
   const method = METHODS.find((method) => method.id === chosenPlanMethodID);
   const chosenAddOns = ADD_ONS.filter((addOn) => addOns?.includes(addOn.id));
@@ -22,7 +24,7 @@ export default function FormSummary() {
   }
   return (
     <form className="w-full" onSubmit={handleSubmit}>
-      <div className="rounded-md bg-slate-100 w-3/4 p-4">
+      <div className={`${isDesktop && 'w-3/4'} rounded-md bg-slate-100 p-4`}>
         <div className="flex flex-col gap-2">
           <div className="flex justify-between">
             <div>
@@ -55,7 +57,7 @@ export default function FormSummary() {
           </div>
         </div>
       </div>
-      <div className="mt-4 w-3/4 text-gray-600 text-[0.7rem] flex justify-between p-4">
+      <div className={`${isDesktop && 'w-3/4'} mt-4 text-gray-600 text-[0.7rem] flex justify-between p-4`}>
         <div>
           Total{'('}
           {payForMonth ? 'per month' : 'per year'}
