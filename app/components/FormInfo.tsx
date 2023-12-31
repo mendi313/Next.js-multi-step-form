@@ -74,10 +74,11 @@ export default function FormInfo() {
             {errors.name && <p className="error ml-2">{errors.name}</p>}
           </label>
           <input
-            className={`input text-right p-2 rounded-md border-2 ${getErrorClass('name')}`}
+            className={`input p-2 rounded-md border-2 ${getErrorClass('name')}`}
             type="text"
             id="name"
             name="name"
+            placeholder='e.g. Stephen King'
             value={personalInfo.name}
             onChange={handleInputChange}
           />
@@ -92,6 +93,7 @@ export default function FormInfo() {
             type="email"
             id="email"
             name="email"
+            placeholder='e.g. stephenking@gmail.com'
             value={personalInfo.email}
             onChange={handleInputChange}
           />
@@ -106,6 +108,7 @@ export default function FormInfo() {
             type="text"
             id="phone"
             name="phone"
+            placeholder='e.g. +1 234 567 890'
             value={personalInfo.phone}
             onChange={handleInputChange}
           />

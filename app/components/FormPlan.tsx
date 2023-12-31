@@ -31,11 +31,12 @@ export default function FormPlan() {
                 <Image src={plane.icon} alt={plane.title} />
               </div>
             )}
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <div className="text-md">{plane.title}</div>
               <div className="text-xs text-gray-600">
                 ${chosenPlanMethodID === 2 ? plane.priceForYear + '' + '/' + price : plane.priceForMonth + '' + '/' + price}
               </div>
+             { chosenPlanMethodID === 2 && <label className='text-green-950 font-medium text-[0.7rem]'> 2 month free</label>}
             </div>
           </div>
         ))}

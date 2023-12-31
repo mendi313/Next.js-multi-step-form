@@ -5,5 +5,5 @@ import MobileDesing from './components/MobileDesing';
 
 export default function Home() {
   const { isDesktop } = useWindowContext();
-  return <div>{isDesktop ? <DesktopDesing /> : <MobileDesing />}</div>;
+  return <div >{isDesktop ? <DesktopDesing /> : <MobileDesing />}</div>;
 }
